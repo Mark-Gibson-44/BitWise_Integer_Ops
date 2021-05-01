@@ -3,5 +3,5 @@
 
 
 int main() {
-	std::cout << ArithmeticLogicOps::right_shift(7, 1);
+	std::cout << ArithmeticLogicOps::left_shift(8, 2);
 }

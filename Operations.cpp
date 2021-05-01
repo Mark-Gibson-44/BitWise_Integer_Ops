@@ -1,6 +1,7 @@
 #include "Operations.h"
 #include <iostream>
 
+
 int ArithmeticLogicOps::add(int operandA, int operandB)
 {
 	int accum = (operandA ^ operandB) & 1;
@@ -76,28 +77,28 @@ int ArithmeticLogicOps::bitwise_xor(int operandA, int operandB)
 int ArithmeticLogicOps::left_shift(int operandA, int shiftAmount)
 {
 	int ret = 0;
-	while (shiftAmount > 0) {
-		for (int i = 2; i < sizeof(int) * 8; i = i << 1)
-		{
-			ret |= (operandA & i);
-		}
-		shiftAmount--;
+	for (int i = 2; i < sizeof(int) * 8; i = i << 1)
+	{
+		ret |= ((operandA & i)*2);
 	}
-	return ret;
+	if (shiftAmount == 1)
+		return ret;
+	return ArithmeticLogicOps::left_shift(ret, shiftAmount - 1);
+	
+	
 }
 
 int ArithmeticLogicOps::right_shift(int operandA, int shiftAmount)
 {
 	int ret = 0;
-	while (shiftAmount > 0)
+	
+	for (int mask = 1; mask <= sizeof(int) * 4; mask = mask << 1)
 	{
-		for (int mask = 1; mask <= sizeof(int) * 4; mask = mask << 1)
-		{
-			ret |= (operandA & mask) >> 1;
-		}
-		shiftAmount--;
+		ret |= (operandA & mask) / 2;
 	}
-	return ret;
+	if(shiftAmount == 1)
+		return ret;
+	return ArithmeticLogicOps::right_shift(ret, shiftAmount - 1);
 }
 
 int ArithmeticLogicOps::rotation(int operandA, int shiftAmount)
