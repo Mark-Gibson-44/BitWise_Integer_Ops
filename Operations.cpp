@@ -77,9 +77,9 @@ int ArithmeticLogicOps::bitwise_xor(int operandA, int operandB)
 int ArithmeticLogicOps::left_shift(int operandA, int shiftAmount)
 {
 	int ret = 0;
-	for (int i = 2; i < sizeof(int) * 8; i = i << 1)
+	for (int i = 1; i < sizeof(int) * 4; i = i << 1)
 	{
-		ret |= ((operandA & i)*2);
+		ret |= ((operandA & i) * 2);
 	}
 	if (shiftAmount == 1)
 		return ret;

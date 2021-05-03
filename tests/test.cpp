@@ -21,5 +21,21 @@ TEST(BITWISE_And, BasicAssertions){
 TEST(BITWISE_Or, BasicAssertions){     
                                         
   EXPECT_EQ(ArithmeticLogicOps::bitwise_or(32, 91), 32 | 91);
-} 
+}
+
+TEST(BITWISE_Xor, BasicAssertions){
+
+  EXPECT_EQ(ArithmeticLogicOps::bitwise_xor(32, 91), 32 ^ 91);
+}
+
+TEST(Shift_left, BasicAssertions){
+
+  EXPECT_EQ(ArithmeticLogicOps::left_shift(32, 1), (32 << 1));
+}
+
+TEST(Shift_right, BasicAssertions){
+
+  EXPECT_EQ(ArithmeticLogicOps::right_shift(19, 1), (19 >> 1));
+}
+
 
