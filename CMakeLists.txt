@@ -4,4 +4,4 @@ project(Bit_Operations)
 
 add_subdirectory(tests)
 
-add_executable(Main_app source.cpp Operations.cpp)
+add_executable(Main_app Source.cpp Operations.cpp)
